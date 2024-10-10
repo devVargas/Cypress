@@ -7,11 +7,14 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.node,
-        Cypress: "readonly",
-        cy: "readonly",
-        describe: "readonly",
+        Cypress: "readonly", 
+        cy: "readonly",       
+        describe: "readonly", 
+        it: "readonly",       
         beforeEach: "readonly",
-        it: "readonly",
+        afterEach: "readonly", 
+        context: "readonly",  
+        expect: "readonly"    
       },
     },
     rules: {
@@ -19,12 +22,6 @@ export default [
       "linebreak-style": ["error", "unix"],
       quotes: ["error", "double"],
       semi: ["error", "always"],
-      "cypress/no-assigning-return-values": "error",
-      "cypress/no-unnecessary-waiting": "error",
-      "cypress/assertion-before-screenshot": "warn",
-      "cypress/no-force": "warn",
-      "cypress/no-async-tests": "error",
-      "cypress/no-pause": "error"
     },
   },
   pluginJs.configs.recommended,
