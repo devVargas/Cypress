@@ -1,0 +1,1 @@
+// Funções auxiliares para chamadas de API (fazer requisições GET, POST, etc.)
