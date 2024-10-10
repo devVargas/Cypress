@@ -1,0 +1,25 @@
+# Ignora a pasta de resultados de testes e arquivos temporários
+cypress/videos/
+cypress/screenshots/
+
+# Ignora plugins locais
+cypress/plugins/
+
+# Ignora arquivos de configuração locais gerados automaticamente
+cypress.env.json
+
+# Ignora arquivos do Node.js e dependências
+node_modules/
+
+# Ignora arquivos de log
+*.log
+
+# Ignora caches do Cypress e relatórios temporários
+.cypress_cache/
+.report/
+coverage/
+
+# Ignora os arquivos de ambiente que podem conter variáveis sensíveis
+.env
+.env.*
+cypress.env.json
