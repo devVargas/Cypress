@@ -23,6 +23,14 @@ export default [
       quotes: ["error", "double"],
       semi: ["error", "always"],
     },
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018
+    }
   },
   pluginJs.configs.recommended,
 ];
