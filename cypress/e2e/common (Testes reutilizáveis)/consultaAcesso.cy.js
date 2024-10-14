@@ -1,7 +1,6 @@
 describe("Faz a consulta dos acessos", () => {
   beforeEach(() =>{
-    cy.visit("/");
-    cy.login({log: false});
+    cy.entra();
   });
   
   it("Gera um novo acesso", () => {

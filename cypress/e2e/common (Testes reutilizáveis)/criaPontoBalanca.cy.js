@@ -1,7 +1,6 @@
 describe("Cria ponto de controle Balanaça S3", () => {
   beforeEach(() =>{
-    cy.visit("/");
-    cy.login({log: false});
+    cy.entra();
   });
 
   it("Balança", () => {

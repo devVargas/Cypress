@@ -4,17 +4,21 @@ import pluginJs from "@eslint/js";
 export default [
   {
     languageOptions: {
+      parserOptions: {
+        ecmaVersion: 2018,
+        sourceType: "module", // ou "script", dependendo do seu código
+      },
       globals: {
+        Cypress: "readonly",
+        cy: "readonly",
+        describe: "readonly",
+        it: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        context: "readonly",
+        expect: "readonly",
         ...globals.browser,
         ...globals.node,
-        Cypress: "readonly", 
-        cy: "readonly",       
-        describe: "readonly", 
-        it: "readonly",       
-        beforeEach: "readonly",
-        afterEach: "readonly", 
-        context: "readonly",  
-        expect: "readonly"    
       },
     },
     rules: {
@@ -23,14 +27,6 @@ export default [
       quotes: ["error", "double"],
       semi: ["error", "always"],
     },
-    "env": {
-      "es6": true,
-      "browser": true,
-      "node": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 2018
-    }
   },
   pluginJs.configs.recommended,
 ];

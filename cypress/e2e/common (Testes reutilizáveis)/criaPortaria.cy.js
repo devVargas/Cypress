@@ -1,7 +1,6 @@
 describe("Cria ponto de controle Portaria ENT/SAI", () => {
   beforeEach(() =>{
-    cy.visit("/");
-    cy.login({log: false});
+    cy.entra();
   });
 
   it("Portaria", () => {

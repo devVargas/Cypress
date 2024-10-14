@@ -1,7 +1,6 @@
 describe("Cria rota de Entrada/Saida", () => {
   beforeEach(() =>{
-    cy.visit("/");
-    cy.login();
+    cy.entra();
   });
   
   it("Ent/Sai", () => {

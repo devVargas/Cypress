@@ -1,7 +1,6 @@
 describe("Abre o supervisório da balança para verificar a pesagem", () => {
   beforeEach(() =>{
-    cy.visit("/");
-    cy.login();
+    cy.entra();
   });
   
   it("Faz a pesagem", () => {
