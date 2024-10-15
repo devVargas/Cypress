@@ -1,24 +1,22 @@
-describe("Cria ponto de controle Portaria ENT/SAI", () => {
+describe("Cria ponto de controle Balanaça S3", () => {
   beforeEach(() =>{
-    cy.entra();
+    cy.login();
   });
 
-  it("Portaria", () => {
+  it("Inicia o processo de criação do ponto", () => {
 
-    // Cria ponto de controle
     cy.criaPonto();
-
-    // Define tipo e nome do ponto - Tela 1 do processo de criação do ponto
-    cy.selectMenu("internal", "Portaria ENT/SAI");
-
-    // Cria o grupo e seleciona qual ponto será criado - Tela 2 do processo de criação do ponto
+    cy.selectTypeName("internal", "Portaria ENT/SAI");
     cy.addGrupo("Portaria");
-    cy.dispList("Portaria Integrada");
-
-    // Define Ips e portas do dispostivos que serão usados no ponto - Tela 3 do processo de criação do ponto
-    cy.cancela("127.0.0.1", "30010");
-    cy.setLadoPortaria("A", "127.0.0.1", "30050");
+    cy.cancela({
+      ip: "127.0.0.1",
+      port: "30010"
+    });
+    cy.setLadoPortaria({
+      lado: "A",
+      ip: "127.0.0.1",
+      port: "30050"
+    });
     cy.aplicaSalva();
   });
-
 });

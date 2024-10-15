@@ -4,6 +4,7 @@
 Cypress.Commands.add("criaPonto", () => { 
   cy.get(":nth-child(5) > .item-menu > .sidenav-item").click();
   cy.licenca();
+  cy.location("pathname").should("equal", "/processos/");
   cy.get("#pane-controlpoints > .h-full > .w-full > .self-end > .el-button--primary").click();
   cy.url().should("include", "/pontos-de-controle/novo");
 });
@@ -26,6 +27,11 @@ Cypress.Commands.add("addGrupo", (nomeGp) => {
   if(nomeGp === "Balança") {
     cy.get(".el-dropdown > .el-button").click();
     cy.contains("li", "Balança Integrada").click();
+    cy.get(":nth-child(1) > :nth-child(2) > :nth-child(1) > .el-dialog__wrapper > .el-dialog > .el-dialog__header > .el-dialog__title").should("be.visible");
+  } else if (nomeGp === "Portaria") {
+    cy.get(".el-dropdown > .el-button").click();
+    cy.contains("li", "Portaria Integrada").click();
+    cy.get(":nth-child(1) > :nth-child(2) > :nth-child(1) > .el-dialog__wrapper > .el-dialog > .el-dialog__header > .el-dialog__title").should("be.visible");
   };
 });
 
@@ -33,5 +39,5 @@ Cypress.Commands.add("addGrupo", (nomeGp) => {
 Cypress.Commands.add("aplicaSalva", () => {
   cy.get(":nth-child(1) > :nth-child(2) > :nth-child(1) > .el-dialog__wrapper > .el-dialog > .el-dialog__footer > .dialog-footer > .el-button--primary").click();
   cy.get(".flex-col > .flex > .bg-primary").click();
+  cy.get(".step-wrapper > .bg-primary").should("be.visible");
 });
-
