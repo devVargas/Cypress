@@ -1,6 +1,7 @@
-import "./commands/authenticationCommands";
-import "./commands/productCommands";
-import "./commands/reportCommands";
-import "./commands/utilCommands";
 import "./helpers/apiHelpers";
-import "./helpers/formHelpers";
+import "./helpers/authenticationCommands";
+import "./helpers/utilCommands";
+import "./commands/controlPoints";
+import "./commands/formBalanca";
+import "./commands/formPortaria";
+

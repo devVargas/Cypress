@@ -1,1 +1,0 @@
-// Comandos para relatórios (geração, exportação, etc.)

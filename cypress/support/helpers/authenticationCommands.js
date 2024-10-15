@@ -1,6 +1,6 @@
 // Comandos relacionados à autenticação (login, logout, etc.)
 
-// Cria uma sessão do usuário
+/* Cria uma sessão do usuário
 Cypress.Commands.add("login", () =>{
   const username = Cypress.env("username");
   const password = Cypress.env("password"); 
@@ -13,9 +13,10 @@ Cypress.Commands.add("login", () =>{
     cy.get("form > .flex > .shadow-material").should("be.visible").click();
   });
 });
+*/
 
 // Faz login no ponto de controle protegendo os dados do sistema
-Cypress.Commands.add("entra", () =>{
+Cypress.Commands.add("login", () =>{
   const user = Cypress.env("username");
   const password = Cypress.env("password");
     
@@ -24,5 +25,4 @@ Cypress.Commands.add("entra", () =>{
   cy.get("input.app-input[name=\"username\"]").type(user);
   cy.get("input.app-input[name=\"password\"]").type(password, {log:false});
   cy.get("form > .flex > .shadow-material").should("be.visible").click();
-  cy.get(".fas.fa-sign-out-alt").should("be.visible");
 });

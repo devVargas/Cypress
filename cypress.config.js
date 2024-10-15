@@ -1,6 +1,3 @@
- 
- 
-
 const { defineConfig } = require("cypress");
 const fs = require("fs");
 

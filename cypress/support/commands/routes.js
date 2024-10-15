@@ -1,12 +1,4 @@
 // Funções auxiliares para lidar com formulários (preencher, limpar, validar)
-
-// Inicia o processo de cadastrar um novo ponto de controle
-Cypress.Commands.add("criaPonto", () => { 
-  cy.get(":nth-child(5) > .item-menu > .sidenav-item").click();
-  cy.licenca();
-  cy.get("#pane-controlpoints > .h-full > .w-full > .self-end > .el-button--primary").click();
-  cy.url().should("include", "/pontos-de-controle/novo");
-});
   
 // Inicia o processo de cadastrar uma nova rota
 Cypress.Commands.add("criaRota", () => { 
@@ -116,6 +108,3 @@ Cypress.Commands.add("gerenciarProduto", (produto) => {
   });    
 });
   
-Cypress.Commands.add("avanca", () => { 
-  cy.get(".mt-8 > .el-button--success").click();
-});
