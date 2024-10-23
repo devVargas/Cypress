@@ -5,8 +5,9 @@ describe("Cria ponto de controle Balanaça S3", () => {
 
   it("Inicia o processo de criação do ponto", () => {
 
+    cy.processo();
     cy.criaPonto();
-    cy.selectTypeName("ssWeight", "Balança2");
+    cy.selectTypeName("ssWeight", "BalançaP");
     cy.addGrupo("Balança");
     cy.indicador("127.0.0.1", "30000");
     cy.camIntelbras([
@@ -36,5 +37,6 @@ describe("Cria ponto de controle Balanaça S3", () => {
       }
     ]);
     cy.aplicaSalva();
+
   });
 });

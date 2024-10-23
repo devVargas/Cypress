@@ -1,10 +1,14 @@
 // Funções auxiliares para lidar com os pontos de controle
 
-// Inicia o processo de cadastrar um novo ponto de controle
-Cypress.Commands.add("criaPonto", () => { 
+// Acessa o menu de processo
+Cypress.Commands.add("processo", () => {
   cy.get(":nth-child(5) > .item-menu > .sidenav-item").click();
   cy.licenca();
   cy.location("pathname").should("equal", "/processos/");
+});
+
+// Inicia o processo de criação do ponto de controle
+Cypress.Commands.add("criaPonto", () => {
   cy.get("#pane-controlpoints > .h-full > .w-full > .self-end > .el-button--primary").click();
   cy.url().should("include", "/pontos-de-controle/novo");
 });
@@ -18,13 +22,13 @@ Cypress.Commands.add("selectTypeName", (selectMenu, nome) => {
 });
 
 // Cadastro do Grupo
-Cypress.Commands.add("addGrupo", (nomeGp) => { 
+Cypress.Commands.add("addGrupo", (nomeGp) => {
   cy.get(".flex > .el-button").click();
   cy.get(".el-form-item__content > .el-input > .el-input__inner").type(nomeGp);
   cy.get(".-b-2 > .flex-1 > .el-dialog__wrapper > .el-dialog > .el-dialog__footer > .dialog-footer > .el-button--primary").click();
 
   // Vai selecionar o dispositivo dentro da lista baseado no nome do Grupo. 
-  if(nomeGp === "Balança") {
+  if (nomeGp === "Balança") {
     cy.get(".el-dropdown > .el-button").click();
     cy.contains("li", "Balança Integrada").click();
     cy.get(":nth-child(1) > :nth-child(2) > :nth-child(1) > .el-dialog__wrapper > .el-dialog > .el-dialog__header > .el-dialog__title").should("be.visible");
@@ -41,3 +45,36 @@ Cypress.Commands.add("aplicaSalva", () => {
   cy.get(".flex-col > .flex > .bg-primary").click();
   cy.get(".step-wrapper > .bg-primary").should("be.visible");
 });
+
+Cypress.Commands.add("deletePontoDeControleById", (id) => {
+  // Constrói o href usando o ID passado como parâmetro
+  const href = `/pontos-de-controle/${id}`;
+
+  // Procura a linha que contém o link correspondente
+  cy.get(`a[href="${href}"]`).closest("tr").first().then(($tr) => {
+    // Log para verificar se o <tr> foi encontrado
+    cy.log("TR encontrado:", $tr.length);
+
+    if ($tr.length) {
+      // Se o <tr> foi encontrado, encapsula o código dentro do contexto do <tr>
+      cy.wrap($tr).within(() => {
+        // Log para verificar se estamos dentro do contexto correto
+        cy.log("Dentro do <tr>:" + href);
+
+        // Clica no botão de exclusão na linha correspondente
+        cy.get("button[title='excluir ponto de controle']").click({ force: true });
+      });
+
+      cy.wait(1000);
+
+      cy.get("#el-popover-3621").within(() => {
+        cy.contains("span", "Ok").click({ force: true });
+      });
+
+    } else {
+      // Lança um erro caso nenhum <tr> seja encontrado
+      throw new Error("Nenhum <tr> encontrado para o href: " + href);
+    }
+  });
+});
+

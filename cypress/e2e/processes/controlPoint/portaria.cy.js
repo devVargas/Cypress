@@ -1,12 +1,13 @@
-describe("Cria ponto de controle Balanaça S3", () => {
+describe("Cria ponto de controle Portaria ENT/SAI", () => {
   beforeEach(() =>{
     cy.login();
   });
 
   it("Inicia o processo de criação do ponto", () => {
 
+    cy.processo();
     cy.criaPonto();
-    cy.selectTypeName("internal", "Portaria ENT/SAI");
+    cy.selectTypeName("internal", "PortariaL ENT/SAI");
     cy.addGrupo("Portaria");
     cy.cancela({
       ip: "127.0.0.1",
@@ -18,5 +19,6 @@ describe("Cria ponto de controle Balanaça S3", () => {
       port: "30050"
     });
     cy.aplicaSalva();
+    
   });
 });
