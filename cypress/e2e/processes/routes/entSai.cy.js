@@ -1,3 +1,6 @@
+import { pontoBal } from "../../../support/helpers/points";
+import { pontoPort } from "../../../support/helpers/points";
+
 describe("Cria rota de Entrada/Saida", () => {
   beforeEach(() =>{
     cy.login();
@@ -10,14 +13,14 @@ describe("Cria rota de Entrada/Saida", () => {
     cy.criaRota();
 
     // Define código e nome da rota  - Tela 1 do processo de criação da Rota
-    cy.codName("R02", "ENT/SAI2");
+    cy.codName("R01", "Entrada/Saida");
     cy.selectForm("Pesagem");
 
     // Monta os steps da rotas - Tela 2 do processo de criação da Rota
-    cy.selectStep("PortariaL ENT/SAI");
-    cy.selectStep("BalançaP");
-    cy.selectStep("BalançaP");
-    cy.selectStep("PortariaL ENT/SAI");
+    cy.selectStep(pontoPort);
+    cy.selectStep(pontoBal);
+    cy.selectStep(pontoBal);
+    cy.selectStep(pontoPort);
     cy.proxSalv();
   });
 });

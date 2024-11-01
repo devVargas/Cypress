@@ -1,3 +1,5 @@
+import { pontoPort } from "../../../support/helpers/points";
+
 describe("Cria ponto de controle Portaria ENT/SAI", () => {
   beforeEach(() =>{
     cy.login();
@@ -7,7 +9,7 @@ describe("Cria ponto de controle Portaria ENT/SAI", () => {
 
     cy.processo();
     cy.criaPonto();
-    cy.selectTypeName("internal", "PortariaL ENT/SAI");
+    cy.selectTypeName("internal", pontoPort);
     cy.addGrupo("Portaria");
     cy.cancela({
       ip: "127.0.0.1",

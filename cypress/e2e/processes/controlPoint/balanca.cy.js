@@ -1,13 +1,15 @@
+import { pontoBal } from "../../../support/helpers/points";
+
 describe("Cria ponto de controle Balanaça S3", () => {
   beforeEach(() =>{
     cy.login();
   });
 
   it("Inicia o processo de criação do ponto", () => {
-
+    
     cy.processo();
     cy.criaPonto();
-    cy.selectTypeName("ssWeight", "BalançaP");
+    cy.selectTypeName("ssWeight", pontoBal);
     cy.addGrupo("Balança");
     cy.indicador("127.0.0.1", "30000");
     cy.camIntelbras([

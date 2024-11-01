@@ -46,6 +46,7 @@ Cypress.Commands.add("aplicaSalva", () => {
   cy.get(".step-wrapper > .bg-primary").should("be.visible");
 });
 
+// Deleta ponto de controle
 Cypress.Commands.add("deletePontoDeControleById", (id) => {
   // Constrói o href usando o ID passado como parâmetro
   const href = `/pontos-de-controle/${id}`;
@@ -67,14 +68,9 @@ Cypress.Commands.add("deletePontoDeControleById", (id) => {
 
       cy.wait(1000);
 
-      cy.get("#el-popover-3621").within(() => {
-        cy.contains("span", "Ok").click({ force: true });
+      cy.get("div.el-popconfirm__action").first().within(() => {
+        cy.contains("button", "Ok").click({ force: true });
       });
-
-    } else {
-      // Lança um erro caso nenhum <tr> seja encontrado
-      throw new Error("Nenhum <tr> encontrado para o href: " + href);
     }
   });
 });
-

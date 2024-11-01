@@ -6,6 +6,6 @@ describe("Deleta um ponto de controle", () => {
   it("Faz a exclusão do ponto de controle", () => {
 
     cy.processo();
-    cy.deletePontoDeControleById(30);
+    cy.deletePontoDeControleById(2);
   });
 });
