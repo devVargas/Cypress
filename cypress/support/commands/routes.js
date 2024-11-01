@@ -44,3 +44,24 @@ Cypress.Commands.add("proxSalv", () => {
 Cypress.Commands.add("checkBox", (id) => { 
   cy.get(`"#${id}"`).uncheck();
 });
+
+Cypress.Commands.add("deleteRouteById", (id) => {
+  const href = `/rotas/${id}`;
+
+  // Procura a linha que contém o link correspondente
+  cy.get(`a[href="${href}"]`).closest("tr").first().then(($tr) => {
+    
+    cy.log("TR encontrado:", $tr.length);
+
+    if ($tr.length) {
+      
+      cy.wrap($tr).within(() => {
+        
+        cy.log("Dentro do <tr>:" + href);
+        cy.get("button[title='excluir rota']").click({ force: true });
+      });
+      
+      cy.contains("button", "Ok").click({force: true});
+    }
+  });
+});
