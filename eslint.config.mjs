@@ -6,7 +6,7 @@ export default [
     languageOptions: {
       parserOptions: {
         ecmaVersion: 2018,
-        sourceType: "module", // ou "script", dependendo do seu código
+        sourceType: "module",
       },
       globals: {
         Cypress: "readonly",

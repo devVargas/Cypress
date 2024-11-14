@@ -15,13 +15,13 @@ module.exports = defineConfig({
         };
       }
 
-      return config; // Retornando a configuração modificada
+      return config;
     },
     baseUrl: "http://127.0.0.1:4000/",
     video: true,
     reporter: "mochawesome",
     reporterOptions: {
-      reportDir: "cypress/reports",  // Diretório onde os relatórios serão gerados
+      reportDir: "cypress/reports", 
       overwrite: false,
       html: true,
       json: false,
