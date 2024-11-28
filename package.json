@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "canvas": "^2.11.2",
-    "jsqr": "^1.4.0"
+    "jimp": "^1.6.0",
+    "jsqr": "^1.4.0",
+    "qrcode-reader": "^1.0.4"
   }
 }
