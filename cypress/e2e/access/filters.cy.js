@@ -16,10 +16,7 @@ describe("Valida os filtros do menu 'Acessos'", () => {
         .get("input[placeholder='Acesso']")
         .type("2")
         .get("a[href='/acessos/2']")
-        .should("be.visible")
-        .wait(1000)
-        .get(".flex.mr-2 > :nth-child(1) > .el-input__suffix > .el-input__suffix-inner > .el-input__icon")
-        .click();
+        .should("be.visible");
     });
   it("Filtro Data", () => {
     cy
@@ -34,7 +31,6 @@ describe("Valida os filtros do menu 'Acessos'", () => {
         const dividiDataEmPartes = capturaData.trim().split(" ")[0];
         const [dia, mes, ano] = dividiDataEmPartes.split("/");
         const dataFormatada = `${ano}-${mes}-${dia}`;
-        //cy.log("Data capturada", formateDate);
         cy
           .get("input[placeholder=\"Início\"]")
           .type(`${dataFormatada}{enter}`)
@@ -44,5 +40,24 @@ describe("Valida os filtros do menu 'Acessos'", () => {
           .url()
           .should("include", `interval=${dataFormatada}`);
       });     
-  });  
+  }); 
+  it("Filtro Processo", () => {
+    cy
+      .licenca();
+    cy
+      .contains("li", "Acessos")
+      .click()
+      .get("input[placeholder=\"Processo\"]")
+      .click()
+      .get(".el-select-dropdown__item")
+      .contains("span", "[r01] entrada") 
+      .click()
+      .then(($el) => {
+        const textoCompleto = $el.text();
+        const textoProcessado = textoCompleto.replace(/\[.*?\]\s*/, "");
+        cy
+          .get("td .cell")
+          .should("contain.text", textoProcessado);
+      });
+  });
 });
