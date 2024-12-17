@@ -35,3 +35,14 @@ Cypress.Commands.add("gerenciaPlaca", (placa) => {
     }
   });
 });
+
+Cypress.Commands.add("defineStatus", (status) => {
+  cy.get("ul > li") // Seleciona todos os elementos li que são filhos diretos da ul
+    .each(($li) => {
+      const texto = $li.text().trim(); // pega o texto do elemento li retirand o espaço com o .trim
+
+      if (texto === status) {
+        cy.wrap($li).click(); // wrap transforma o elemento jQuery em um objeto Cypress
+      } 
+    });  
+});

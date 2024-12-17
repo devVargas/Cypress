@@ -60,4 +60,58 @@ describe("Valida os filtros do menu 'Acessos'", () => {
           .should("contain.text", textoProcessado);
       });
   });
+  it("Filtro TAG", () => {
+    cy
+      .licenca();
+    cy
+      .contains("li", "Acessos")
+      .click()
+      .get(".el-table__body-wrapper > .el-table__body > tbody > .el-table__row > .el-table_1_column_4 > .cell > div")
+      .invoke("text")
+      .then((text) => {
+        cy
+          .get("input[placeholder=\"TAG\"]")
+          .type(text)
+          .get("td .cell")
+          .should("contain.text", text);
+      });
+  });
+  it("Filtro Placa", () => {
+    cy
+      .licenca();
+    cy
+      .contains("li", "Acessos")
+      .click()
+      .get("td.el-table_1_column_5")
+      .children("div.cell")
+      .eq(1)
+      .invoke("text")
+      .then((text) => {
+        cy
+          .get("input[placeholder=\"Placa\"]")
+          .type(text)
+          .get("td .cell")
+          .should("contain.text", text);
+      });
+  });
+  it("Filtro Status", () => {
+    cy
+      .licenca();
+    cy
+      .contains("li", "Acessos")
+      .click()
+      .get("input[placeholder=\"Selecione\"]")
+      .click();
+    cy
+      .defineStatus("Abertos")
+      .get("td.el-table_1_column_6")
+      .children("div.cell")
+      .eq(1)
+      .invoke("text")
+      .then((text) => {
+        cy
+          .get("td .cell")
+          .should("contain.text", text);
+      });
+  });
 });
