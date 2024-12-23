@@ -7,7 +7,7 @@ describe("Valida filtro do botão 'Acessos Concluídos' contido no menu iniciar"
   it("Faz a validação do do botão 'Acessos Concluídos' dentro do menu 'Iniciar'", 
     () => {
       cy
-        .licenca();
+        .fechaLicenca();
       cy
         .contains("h3", "Acessos concluídos")
         .parent()

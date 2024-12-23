@@ -9,7 +9,7 @@ describe("Valida os filtros do menu 'Acessos'", () => {
   it("Filtro Acesso", 
     () => {
       cy
-        .licenca();
+        .fechaLicenca();
       cy
         .contains("li", "Acessos")
         .click()
@@ -20,7 +20,7 @@ describe("Valida os filtros do menu 'Acessos'", () => {
     });
   it("Filtro Data", () => {
     cy
-      .licenca();
+      .fechaLicenca();
     cy
       .contains("li", "Acessos")
       .click()
@@ -43,7 +43,7 @@ describe("Valida os filtros do menu 'Acessos'", () => {
   }); 
   it("Filtro Processo", () => {
     cy
-      .licenca();
+      .fechaLicenca();
     cy
       .contains("li", "Acessos")
       .click()
@@ -62,7 +62,7 @@ describe("Valida os filtros do menu 'Acessos'", () => {
   });
   it("Filtro TAG", () => {
     cy
-      .licenca();
+      .fechaLicenca();
     cy
       .contains("li", "Acessos")
       .click()
@@ -78,7 +78,7 @@ describe("Valida os filtros do menu 'Acessos'", () => {
   });
   it("Filtro Placa", () => {
     cy
-      .licenca();
+      .fechaLicenca();
     cy
       .contains("li", "Acessos")
       .click()
@@ -96,14 +96,14 @@ describe("Valida os filtros do menu 'Acessos'", () => {
   });
   it("Filtro Status", () => {
     cy
-      .licenca();
+      .fechaLicenca();
     cy
       .contains("li", "Acessos")
       .click()
       .get("input[placeholder=\"Selecione\"]")
       .click();
     cy
-      .defineStatus("Abertos")
+      .selecionaNaLista("Abertos")
       .get("td.el-table_1_column_6")
       .children("div.cell")
       .eq(1)

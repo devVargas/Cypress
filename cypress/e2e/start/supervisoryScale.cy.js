@@ -7,7 +7,7 @@ describe("Acessa o supervisório da balança através do botão 'Abrir Supervis�
   it("Faz a validação do do botão 'Abrir Supervisório' dentro do menu 'Iniciar'", 
     () => {
       cy
-        .licenca();
+        .fechaLicenca();
       cy
         .contains("h3", "Balança")
         .parent()

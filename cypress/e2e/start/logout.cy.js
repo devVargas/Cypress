@@ -6,13 +6,13 @@ describe("Faz a validação de logout do sistema", () => {
 
   it("Abre o QR Code e valida se ele está correto", () => {
     cy
-      .licenca();
+      .fechaLicenca();
     cy
       .get("[title='Sair'")
       .find(".fas.fa-sign-out-alt.cursor-pointer") 
       .click()
       .wait(1000)
-      .licenca();
+      .fechaLicenca();
     cy
       .get("img.h-full")
       .should("be.visible")

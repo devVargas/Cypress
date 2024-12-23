@@ -6,7 +6,7 @@ describe("Acessa o QR Code de sincronização do Ponto de Controle", () => {
 
   it("Abre o QR Code e valida se ele está correto", () => {
     cy
-      .licenca();
+      .fechaLicenca();
     cy
       .get(".fa-qrcode")
       .click();
