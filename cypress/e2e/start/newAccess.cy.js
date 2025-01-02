@@ -1,4 +1,4 @@
-import { motorista, rota, placa, produto, botaoConferencia } from "../../support/helpers/points.js";
+import { motorista, rota, placa, produto, botaoConferencia, tag } from "../../support/helpers/points.js";
 
 describe("Cria um acesso através do botão contido no menu 'Acessos'", () => {
   beforeEach(() =>{
@@ -19,28 +19,38 @@ describe("Cria um acesso através do botão contido no menu 'Acessos'", () => {
         .get("input[placeholder=\"Template da rota.\"]")
         .click()
         .selecionaNaLista(rota)
-
-        .get(".el-button--success")    // Melhorar a ação de avançar
+        .get(".el-button--success")  // Melhorar a ação de avançar -> O que muda do botão da segunda tela para primeira é apenas a tag pai que ele se encontra primeira tela não possui a mt8 na tag pai, verificar maneira de colocar esse botão dentro do buttonAvancar()
         .contains("button", "Avançar")
         .click()
-
         .gerenciaPlaca(placa)
         .gerenciaMotorista(motorista)
         .get("input[placeholder=\"Tag\"]")
-        .type("123455")
-
-        .get(".mt-8 > .el-button--success")  // Melhorar a ação de avançar
-        .should("not.be.disabled")
-        .contains("Avançar")
-        .click()
-
+        .type(tag)
+        .buttonAvancar()
         .gerenciaProduto(produto)
-        
-        .get(".mt-8 > .el-button--success")
-        .should("not.be.disabled")
-        .contains("Avançar")
-        .click()
+        .buttonAvancar()
+        .gerenciaConferencia(botaoConferencia.modulo1)
+        .buttonAvancar()
+        .get("div[role='alert']")
+        .should("be.visible")
+        .then((alert) => {
+          const alertClass = alert.attr("class");
+          const alertMessage = alert.find("p.el-message__content").text();
 
-        .gerenciaConferencia(botaoConferencia.modulo2);
+          if(alertClass.includes("el-message--success")) {
+            cy
+              .url()
+              .should("include", "/acessos/");
+            expect(alertMessage).to.equal("Acesso criado com sucesso");
+          } 
+          if (alertClass.includes("el-message--error")) {
+            if(alertMessage.includes("PLACA já possui outro acesso aberto")){
+              cy.log("Placa ja possui outro acesso aberto");
+            } 
+            if (alertMessage.includes("TAG já possui outro acesso aberto.")) {
+              cy.log("Tag já possui outro acesso aberto");
+            }
+          }
+        });
     });
 });

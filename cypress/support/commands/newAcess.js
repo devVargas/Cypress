@@ -1,4 +1,4 @@
-const { botaoConferencia } = require("../helpers/points");
+import { botaoConferencia } from "../helpers/points.js";
 
 Cypress.Commands.add("gerenciaPlaca", (placa) => {
   cy
@@ -86,7 +86,7 @@ Cypress.Commands.add("gerenciaProduto", (produto) => {
     });
 });
 
-Cypress.Commands.add("gerenciaConf  erencia", (conferecia) => {
+Cypress.Commands.add("gerenciaConferencia", (conferecia) => {
   if(conferecia === botaoConferencia.modulo1){
     cy.log("ok");
   }else {
@@ -107,15 +107,5 @@ Cypress.Commands.add("gerenciaConf  erencia", (conferecia) => {
         .find("input[type=\"number\"]")
         .type(campo.valor);
     });
-      
-    // .get("div[title=\"Carregamento Desejado\"]")
-    // .find("input[type=\"number\"]")
-    // .type("74000")
-    // .get("div[title=\"Carregamento Mínimo\"]")
-    // .find("input[type=\"number\"]")
-    // .type("73800")
-    // .get("div[title=\"Carregamento Máximo\"]")
-    // .find("input[type=\"number\"]")
-    // .type("74100")
-  }
+  };
 });

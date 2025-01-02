@@ -38,3 +38,11 @@ Cypress.Commands.add("buttonSalva", () => {
     .contains("Salvar")
     .click(); 
 });
+
+Cypress.Commands.add("buttonAvancar", () => {
+  cy
+    .get(".mt-8 > .el-button--success")
+    .should("not.be.disabled")
+    .contains("Avançar")
+    .click();
+});

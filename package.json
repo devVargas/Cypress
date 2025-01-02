@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "pontoDeControle": "C:/Users/Alisson/Desktop/QA/homologacaoPdc/Mockoon/debug.bat",
     "cy:open": "cypress open",

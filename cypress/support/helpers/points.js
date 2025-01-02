@@ -1,7 +1,7 @@
 export const pontoBal = "Balança";
 export const pontoPort = "Portaria ENT/SAI";
 export const rota = "[r01] entrada";
-export const placa = "ABC1217";
+export const placa = "ABC1218";
 export const motorista = "João da Silva";
 export const produto = "MILHO2";
 export const botaoConferencia = { 
@@ -10,3 +10,4 @@ export const botaoConferencia = {
   modulo3: "Peso Subtotal (Apenas Carga)" ,
   modulo4: "Peso Liquido (Carga - Descontos)"
 };
+export const tag = "123456";
