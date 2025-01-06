@@ -67,6 +67,7 @@ describe("Valida os filtros do menu 'Acessos'", () => {
       .contains("li", "Acessos")
       .click()
       .get(".el-table__body-wrapper > .el-table__body > tbody > .el-table__row > .el-table_1_column_4 > .cell > div")
+      .eq(1)
       .invoke("text")
       .then((text) => {
         cy
