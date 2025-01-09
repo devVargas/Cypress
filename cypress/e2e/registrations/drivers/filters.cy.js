@@ -19,7 +19,8 @@ describe("Valida os filtros do menu 'Cadastros de motoristas'", () => {
         .get("input[placeholder='Nome']")
         .type(motorista.nome)
         .get("table.el-table__body")
-        .find("td.el-table_1_column_3")
+        .wait(1000)
+        .get("table.el-table__body")
         .contains(motorista.nome)
         .should("be.visible");
     });
@@ -36,7 +37,8 @@ describe("Valida os filtros do menu 'Cadastros de motoristas'", () => {
         .get("input[placeholder='CPF']")
         .type(motorista.cpf)
         .get("table.el-table__body")
-        .find("td.el-table_1_column_4")
+        .wait(1000)
+        .get("table.el-table__body")
         .contains(motorista.cpf)
         .should("be.visible");
     });

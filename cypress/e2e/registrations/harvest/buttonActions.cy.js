@@ -1,6 +1,6 @@
-import { motorista } from "../../../support/helpers/points.js";
+import { safra } from "../../../support/helpers/points.js";
 
-describe("Valida os botões de ação do menu 'Cadastros de motoristas'", () => {
+describe("Valida os botões de ação do menu 'Cadastros de safras'", () => {
   beforeEach(() =>{
     cy
       .login();
@@ -13,22 +13,22 @@ describe("Valida os botões de ação do menu 'Cadastros de motoristas'", () => 
       cy
         .contains("a", "Cadastro")
         .click()
-        .get("ul.submenu a[href=\"/cadastros/motoristas/\"]")
+        .get("ul.submenu a[href=\"/cadastros/safras/\"]")
         .should("be.visible")
         .click()
-        .get("button[title=\"editar motorista\"]")
+        .get("button[title=\"editar safra\"]")      
         .eq(1)
-        .click()
+        .click({force:true})
         .wait(1000)
         .get("input.el-input__inner")
         .eq(0)
         .clear()
-        .type(`${motorista.nome}2`)
+        .type(`${safra.codigo}1`)
         .buttonSalva()
         .get("div[role='alert']")
         .should("be.visible")
         .url()
-        .should("include", "/cadastros/motoristas");
+        .should("include", "/cadastros/safras");
     });
 
   it("Botão de exclusão", 
@@ -38,12 +38,12 @@ describe("Valida os botões de ação do menu 'Cadastros de motoristas'", () => 
       cy
         .contains("a", "Cadastro")
         .click()
-        .get("ul.submenu a[href=\"/cadastros/motoristas/\"]")
+        .get("ul.submenu a[href=\"/cadastros/safras/\"]")
         .should("be.visible")
         .click()
-        .get("button[title=\"Excluir motorista\"]")
+        .get("button[title=\"Excluir safra\"]")
         .eq(1)
-        .click()
+        .click({force:true})
         .then(() =>{
           cy
             .contains("button", "Ok")

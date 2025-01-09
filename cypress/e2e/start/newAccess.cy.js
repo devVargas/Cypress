@@ -1,4 +1,4 @@
-import { motorista, rota, placa, produto, botaoConferencia, tag } from "../../support/helpers/points.js";
+import { motorista, rota, veiculo, produto, botaoConferencia, tag } from "../../support/helpers/points.js";
 
 describe("Cria um acesso através do botão contido no menu 'Acessos'", () => {
   beforeEach(() =>{
@@ -22,7 +22,7 @@ describe("Cria um acesso através do botão contido no menu 'Acessos'", () => {
         .get(".el-button--success")  // Melhorar a ação de avançar -> O que muda do botão da segunda tela para primeira é apenas a tag pai que ele se encontra primeira tela não possui a mt8 na tag pai, verificar maneira de colocar esse botão dentro do buttonAvancar()
         .contains("button", "Avançar")
         .click()
-        .gerenciaPlaca(placa)
+        .gerenciaPlaca(veiculo.placa)
         .gerenciaMotorista(motorista)
         .get("input[placeholder=\"Tag\"]")
         .type(tag)
