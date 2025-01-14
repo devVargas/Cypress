@@ -26,7 +26,7 @@ Cypress.Commands.add("selecionaNaLista", (itemLista) => {
     .get("ul > li") 
     .each(($li) => {
       const texto = $li.text().trim(); 
-      if (texto === itemLista) {
+      if (texto.includes(itemLista)) {
         cy.wrap($li).click(); 
       } 
     });  

@@ -2,7 +2,6 @@ export const pontoBal = "Balança";
 export const pontoPort = "Portaria ENT/SAI";
 export const rota = "[r01] entrada";
 export const tag = "123456";
-export const produto = "MILHO2";
 
 export const botaoConferencia = { 
   modulo1: "Não Conferir", 
@@ -37,4 +36,15 @@ export const veiculo = {
   obs: "Observação Veiculo"	,
   ano: "2022",
   eixos: "9"
+};
+
+export const produto = {
+  nome: "Milho",
+  code: "0101",
+  obs: "Observação Produto"
+};
+
+export const variedade = {
+  nome: "Milho Variety",
+  code: "0001"
 };

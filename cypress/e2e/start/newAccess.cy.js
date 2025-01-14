@@ -27,7 +27,7 @@ describe("Cria um acesso através do botão contido no menu 'Acessos'", () => {
         .get("input[placeholder=\"Tag\"]")
         .type(tag)
         .buttonAvancar()
-        .gerenciaProduto(produto)
+        .gerenciaProduto(produto.nome)
         .buttonAvancar()
         .gerenciaConferencia(botaoConferencia.modulo1)
         .buttonAvancar()
