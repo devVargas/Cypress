@@ -48,3 +48,42 @@ export const variedade = {
   nome: "Milho Variety",
   code: "0001"
 };
+
+export const operacao = {
+  code: "0001",
+  obs: "Observação Operação"
+};
+
+export const lavoura = {
+  code: "0001",
+  obs: "Observação Lavoura"
+};
+
+export const campo = {
+  code: "0001",
+  nome: "Talhão 01/1"
+};
+
+export const filial = {
+  code: "0001",
+  nome: "Empresa de Teste"
+};
+
+export const transportadora = {
+  nome: "Transportadora Teste",
+  code: "0001",
+  cnpj: "03.299.514/0001-88",
+  obs: "Observação Transportadora"
+};
+
+export const parceiros = {
+  nomeFantasia: "Parceiro Teste",
+  razaoSocial: "PRC Teste",
+  cnpj: "32.791.502/0001-74",
+  inscricaoEstadual: "555757038527",
+  endereco: "Av. Antônio Frederico Ozanam, 217",
+  cidade: "Canoas",
+  estado: "RS",
+  code: "0001",
+  obs: "Observação Parceiros"
+};
