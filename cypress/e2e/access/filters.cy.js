@@ -13,7 +13,7 @@ describe("Valida os filtros do menu 'Acessos'", () => {
       cy
         .contains("li", "Acessos")
         .click()
-        .get("input[placeholder='Acesso']")
+        .get("input[placeholder=\"Acesso\"]")
         .type("2")
         .get("a[href='/acessos/2']")
         .should("be.visible");
