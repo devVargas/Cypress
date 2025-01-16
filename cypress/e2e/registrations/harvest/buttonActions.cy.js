@@ -17,7 +17,7 @@ describe("Valida os botões de ação do menu 'Cadastros de safras'", () => {
         .should("be.visible")
         .click()
         .get("button[title=\"editar safra\"]")      
-        .eq(1)
+        .eq(0)
         .click({force:true})
         .wait(1000)
         .get("input.el-input__inner")
@@ -47,9 +47,10 @@ describe("Valida os botões de ação do menu 'Cadastros de safras'", () => {
         .then(() =>{
           cy
             .contains("button", "Ok")
-            .click({force:true})
-            .get("div[role='alert']")
-            .should("be.visible");
+            .click({force:true});
         });
+      cy
+        .get("div[role='alert']")
+        .should("be.visible");
     }); 
 });

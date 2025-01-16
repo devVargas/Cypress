@@ -17,7 +17,7 @@ describe("Valida os botões de ação do menu 'Cadastros de motoristas'", () => 
         .should("be.visible")
         .click()
         .get("button[title=\"editar motorista\"]")
-        .eq(1)
+        .eq(0)
         .click()
         .wait(1000)
         .get("input.el-input__inner")
@@ -47,9 +47,10 @@ describe("Valida os botões de ação do menu 'Cadastros de motoristas'", () => 
         .then(() =>{
           cy
             .contains("button", "Ok")
-            .click({force:true})
-            .get("div[role='alert']")
-            .should("be.visible");
+            .click({force:true});
         });
+      cy
+        .get("div[role='alert']")
+        .should("be.visible");
     }); 
 });

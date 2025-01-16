@@ -1,6 +1,6 @@
-import { veiculo } from "../../../support/helpers/points.js";
+import { produto } from "../../../support/helpers/points.js";
 
-describe("Valida os botões de ação do menu 'Cadastros de motoristas'", () => {
+describe("Valida os botões de ação do menu 'Cadastros de safras'", () => {
   beforeEach(() =>{
     cy
       .login();
@@ -13,22 +13,22 @@ describe("Valida os botões de ação do menu 'Cadastros de motoristas'", () => 
       cy
         .contains("a", "Cadastro")
         .click()
-        .get("ul.submenu a[href=\"/cadastros/veiculos/\"]")
+        .get("ul.submenu a[href=\"/cadastros/produtos/\"]")
         .should("be.visible")
         .click()
-        .get("button[title=\"editar veículo\"]")
+        .get("button[title=\"editar produto\"]")      
         .eq(0)
         .click({force:true})
         .wait(1000)
         .get("input.el-input__inner")
-        .eq(2)
+        .eq(0)
         .clear()
-        .type(`${veiculo.code}2`)
+        .type(`${produto.nome}1`)
         .buttonSalva()
         .get("div[role='alert']")
         .should("be.visible")
         .url()
-        .should("include", "/cadastros/veiculos");
+        .should("include", "/cadastros/produtos");
     });
 
   it("Botão de exclusão", 
@@ -38,11 +38,11 @@ describe("Valida os botões de ação do menu 'Cadastros de motoristas'", () => 
       cy
         .contains("a", "Cadastro")
         .click()
-        .get("ul.submenu a[href=\"/cadastros/veiculos/\"]")
+        .get("ul.submenu a[href=\"/cadastros/produtos/\"]")
         .should("be.visible")
         .click()
-        .get("button[title=\"Excluir Veículo\"]")
-        .eq(1)
+        .get("button[title=\"Excluir Produto\"]")
+        .eq(0)
         .click({force:true})
         .then(() =>{
           cy
@@ -54,4 +54,3 @@ describe("Valida os botões de ação do menu 'Cadastros de motoristas'", () => 
         .should("be.visible");
     }); 
 });
-
