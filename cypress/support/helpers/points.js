@@ -1,7 +1,39 @@
-export const pontoBal = "Balança";
-export const pontoPort = "Portaria ENT/SAI";
 export const rota = "[r01] entrada";
 export const tag = "123456";
+
+export const pontoPort = {
+  nome: "Portaria ENT/SAI",
+  tipo: "Interno"
+};
+
+export const pontoBal = {
+  nome: "Balança42",
+  tipo: "Balança",
+  naLista: "Balança Integrada",
+  ip: "127.0.0.1",
+  port: "30000"
+};
+
+export const pontoTorreA = {
+  ipRfid: "127.0.0.1",
+  portRfid: "30050",
+  ipCanc: "127.0.0.1",
+  portCanc: "30010"
+};
+
+export const pontoTorreB = {
+  ipRfid: "127.0.0.1",
+  portRfid: "30060",
+  ipCanc: "127.0.0.1",
+  portCanc: "30020"
+};
+
+export const pontoCamera = {
+  ip1: "192.168.130.239",
+  port1: "80",
+  ip2: "192.168.130.235",
+  port2: "80"
+};
 
 export const botaoConferencia = { 
   modulo1: "Não Conferir", 
