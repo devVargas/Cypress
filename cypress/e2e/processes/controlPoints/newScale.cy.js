@@ -19,6 +19,7 @@ describe("Cria o ponto de controle Balança. Será criado uma balança S3", () =
   it("Cria o ponto de controle Balança", 
     () => {
       cy
+        .wait(1000)
         .fechaLicenca();
       cy
         .get("a[href=\"/processos/\"]")
@@ -85,7 +86,8 @@ describe("Cria o ponto de controle Balança. Será criado uma balança S3", () =
             .fillAddressPort(0, pontoTorreA.ipRfid, pontoTorreA.portRfid)
             .clickSwitch(1)
             .fillAddressPort(1, pontoTorreA.ipCanc, pontoTorreA.portCanc);
-        })
+        });
+      cy
         .get("[aria-controls=\"pane-B\"]")
         .click()
         .get("#pane-B")
@@ -95,7 +97,8 @@ describe("Cria o ponto de controle Balança. Será criado uma balança S3", () =
             .fillAddressPort(0, pontoTorreB.ipRfid, pontoTorreB.portRfid)
             .clickSwitch(1)
             .fillAddressPort(1, pontoTorreB.ipCanc, pontoTorreB.portCanc);
-        })
+        });
+      cy
         .get("button > span")
         .contains("Aplicar")
         .click()

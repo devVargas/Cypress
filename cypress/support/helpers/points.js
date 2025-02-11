@@ -1,13 +1,33 @@
-export const rota = "[r01] entrada";
 export const tag = "123456";
+
+export const rota = {
+  code: "R01",
+  nome: "Rota Padrão",
+  obs: "Observação Rota",
+  form: "Pesagem Padrão"
+};
+
+export const botaoConferencia = { 
+  modulo1: "Não Conferir", 
+  modulo2: "Peso Bruto (Caminhão + Carga)", 
+  modulo3: "Peso Subtotal (Apenas Carga)" ,
+  modulo4: "Peso Liquido (Carga - Descontos)"
+};
+
+// Ponto de Controle
 
 export const pontoPort = {
   nome: "Portaria ENT/SAI",
-  tipo: "Interno"
+  tipo: "Interno",
+  naLista: "Portaria Integrada",
+  ipCanc: "127.0.0.1",
+  portCanc: "30011",
+  ipRfid: "127.0.0.1",
+  portRfid: "30051"
 };
 
 export const pontoBal = {
-  nome: "Balança42",
+  nome: "Balança",
   tipo: "Balança",
   naLista: "Balança Integrada",
   ip: "127.0.0.1",
@@ -35,12 +55,7 @@ export const pontoCamera = {
   port2: "80"
 };
 
-export const botaoConferencia = { 
-  modulo1: "Não Conferir", 
-  modulo2: "Peso Bruto (Caminhão + Carga)", 
-  modulo3: "Peso Subtotal (Apenas Carga)" ,
-  modulo4: "Peso Liquido (Carga - Descontos)"
-};
+// Cadastros
 
 export const motorista = {
   nome: "João12",
